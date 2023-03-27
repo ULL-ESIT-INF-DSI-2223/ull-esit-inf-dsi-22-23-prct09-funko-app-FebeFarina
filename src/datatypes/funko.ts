@@ -2,24 +2,19 @@ import chalk from "chalk";
 
 const log = console.log;
 
-export type FunkoType = "Pop!" | "Pop! Rides" | "Vynil Soda" | "Vynil Gold";
-
 export class Funko {
-  private static funko_ids = 1;
-  public id: number;
   constructor(
+    public id: number,
     private name: string,
     private description: string,
-    private type: FunkoType,
+    private type: string,
     private genre: string,
     private franchise: string,
     private number: number,
     private exclusive: boolean,
     private special_characteristics: string[],
     private price: number
-  ) {
-    this.id = Funko.funko_ids++;
-  }
+  ) {}
   getMarketValue(): string {
     if (this.price > 100) {
       return "Very High";

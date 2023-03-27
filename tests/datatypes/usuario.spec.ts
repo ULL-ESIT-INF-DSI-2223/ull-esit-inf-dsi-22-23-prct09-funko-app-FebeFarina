@@ -1,8 +1,8 @@
 import "mocha";
 import { expect } from "chai";
-import { Usuario } from "../src/usuario.js";
-import { Funko } from "../src/funko.js";
-import { FunkoCollection } from "../src/funko_collection.js";
+import { Usuario } from "../../src/datatypes/usuario.js";
+import { Funko } from "../../src/datatypes/funko.js";
+import { FunkoCollection } from "../../src/datatypes/funko_collection.js";
 
 describe("Usuario", () => {
   it("Se debe poder crear un usuario", () => {
