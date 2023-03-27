@@ -1,9 +1,14 @@
+import chalk from "chalk";
+
+const log = console.log;
+
 export type FunkoType = "Pop!" | "Pop! Rides" | "Vynil Soda" | "Vynil Gold";
 
 export class Funko {
+  private static funko_ids = 1;
+  public id: number;
   constructor(
     private name: string,
-    private id: number,
     private description: string,
     private type: FunkoType,
     private genre: string,
@@ -12,26 +17,49 @@ export class Funko {
     private exclusive: boolean,
     private special_characteristics: string[],
     private price: number
-  ) {}
-  showInfo(): string[] {
-    const result = [];
-    result.push("ID:" + this.id);
-    result.push("Name: " + this.name);
-    result.push("Description: " + this.description);
-    result.push("Type: " + this.type);
-    result.push("Genre: " + this.genre);
-    result.push("Franchise: " + this.franchise);
-    result.push("Number: " + this.number);
-    if (this.exclusive) {
-      result.push("Exclusive: Yes");
+  ) {
+    this.id = Funko.funko_ids++;
+  }
+  getMarketValue(): string {
+    if (this.price > 100) {
+      return "Very High";
+    } else if (this.price > 50) {
+      return "High";
+    } else if (this.price > 20) {
+      return "Medium";
     } else {
-      result.push("Exclusive: No");
+      return "Low";
     }
-    result.push("Special Characteristics: ");
+  }
+  showInfo() {
+    log(chalk.green("ID: " + this.id));
+    log(chalk.green("Name: " + this.name));
+    log(chalk.green("Description: " + this.description));
+    log(chalk.green("Type: " + this.type));
+    log(chalk.green("Genre: " + this.genre));
+    log(chalk.green("Franchise: " + this.franchise));
+    log(chalk.green("Number: " + this.number));
+    log(chalk.green("Exclusive: " + this.exclusive));
+    log(chalk.green("Special Characteristics: "));
     this.special_characteristics.forEach((characteristic) => {
-      result.push(" -" + characteristic);
+      log(chalk.green("\t- " + characteristic));
     });
-    result.push("Price: " + this.price);
-    return result;
+    switch (this.getMarketValue()) {
+      case "Very High":
+        log(chalk.green("Market Value: " + chalk.green(this.getMarketValue())));
+        break;
+      case "High":
+        log(
+          chalk.green("Market Value: " + chalk.yellow(this.getMarketValue()))
+        );
+        break;
+      case "Medium":
+        log(chalk.green("Market Value: " + chalk.blue(this.getMarketValue())));
+        break;
+      case "Low":
+        log(chalk.green("Market Value: " + chalk.red(this.getMarketValue())));
+        break;
+    }
+    return true;
   }
 }

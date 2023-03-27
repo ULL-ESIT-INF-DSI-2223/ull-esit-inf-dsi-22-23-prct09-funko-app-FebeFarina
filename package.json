@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/fmDo8ROl)",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
@@ -38,6 +39,7 @@
     "typedoc": "^0.23.28"
   },
   "dependencies": {
+    "@types/node": "^18.15.10",
     "chalk": "^5.2.0",
     "yargs": "^17.7.1"
   }
