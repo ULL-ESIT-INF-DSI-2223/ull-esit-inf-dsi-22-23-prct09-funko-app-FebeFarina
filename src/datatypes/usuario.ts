@@ -7,33 +7,32 @@ const log = console.log;
 export class Usuario {
   protected funkos = new FunkoCollection();
   constructor(protected name: string) {}
-  addFunko(funko: Funko, print: boolean): number {
-    if (this.funkos.get(funko.id)) {
-      if (print) {
-        log(chalk.red("Funko already exists at " + this.name + " collection"));
-      }
-      return -1;
-    } else {
-      const id = this.funkos.add(funko);
+  setFunko(funko: Funko, print: boolean): boolean {
+    const result = this.funkos.set(funko);
+    if (result) {
       if (print) {
         log(chalk.green("Funko added at " + this.name + " collection"));
       }
-      return id;
+    } else {
+      if (print) {
+        log(chalk.red("Funko already exists at " + this.name + " collection"));
+      }
     }
+    return result;
   }
-  removeFunko(id: number): boolean {
-    const result = this.funkos.remove(id);
+  updateFunko(funko: Funko): boolean {
+    const result = this.funkos.update(funko);
     if (result) {
-      log(chalk.green("Funko removed at " + this.name + " collection"));
+      log(chalk.green("Funko updated at " + this.name + " collection"));
     } else {
       log(chalk.red("Funko not found at " + this.name + " collection"));
     }
     return result;
   }
-  updateFunko(id: number, funko: Funko): boolean {
-    const result = this.funkos.update(id, funko);
+  removeFunko(id: number): boolean {
+    const result = this.funkos.remove(id);
     if (result) {
-      log(chalk.green("Funko updated at " + this.name + " collection"));
+      log(chalk.green("Funko removed at " + this.name + " collection"));
     } else {
       log(chalk.red("Funko not found at " + this.name + " collection"));
     }
@@ -56,6 +55,7 @@ export class Usuario {
       funko.showInfo();
     } else {
       log(chalk.red("Funko not found at" + this.name + "collection"));
+      return false;
     }
     return true;
   }

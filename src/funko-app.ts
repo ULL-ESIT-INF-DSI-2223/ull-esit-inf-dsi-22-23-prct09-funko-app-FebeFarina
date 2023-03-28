@@ -80,7 +80,7 @@ yargs(hideBin(process.argv))
         argv.special_char.split(","),
         argv.price
       );
-      user.addFunko(funko);
+      user.setFunko(funko);
     }
   )
   .help().argv;
@@ -224,7 +224,7 @@ yargs(hideBin(process.argv))
         argv.special_char.split(","),
         argv.price
       );
-      user.updateFunko(argv.id, funko);
+      user.setFunko(funko);
     }
   )
   .help().argv;

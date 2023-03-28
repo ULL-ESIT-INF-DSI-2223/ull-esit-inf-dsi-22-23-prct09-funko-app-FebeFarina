@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
-    "coverage": "c8 mocha && c8 report --reporter=text-lcov",
+    "coverage": "c8 mocha",
     "start": "tsc-watch --onSuccess \"node dist/funko-app.js\"",
     "doc": "typedoc; touch ./docs/.nojekyll"
   },

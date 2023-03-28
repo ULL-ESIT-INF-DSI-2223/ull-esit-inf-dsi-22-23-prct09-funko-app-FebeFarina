@@ -7,14 +7,15 @@ import fs from "fs";
 export class UsuarioJSON extends Usuario {
   constructor(name: string) {
     super(name);
-    if (fs.existsSync("/data/" + name)) {
+    if (!fs.existsSync("./data/" + name)) {
+      console.log("Creating directory: " + name);
       fs.mkdirSync("./data/" + name);
     }
     const files = fs.readdirSync("./data/" + name);
     files.forEach((file) => {
       const data = fs.readFileSync("./data/" + name + "/" + file);
       const funko = JSON.parse(data.toString());
-      this.funkos.add(
+      this.funkos.set(
         new Funko(
           funko.id,
           funko.name,
@@ -31,11 +32,11 @@ export class UsuarioJSON extends Usuario {
     });
   }
 
-  addFunko(funko: Funko): number {
-    const id = super.addFunko(funko, true);
-    if (id !== -1) {
+  setFunko(funko: Funko): boolean {
+    const result = super.setFunko(funko, true);
+    if (result) {
       fs.writeFile(
-        "./data/" + this.name + "/" + id + ".json",
+        "./data/" + this.name + "/" + funko.id + ".json",
         JSON.stringify(funko),
         (err) => {
           if (err) {
@@ -44,7 +45,7 @@ export class UsuarioJSON extends Usuario {
         }
       );
     }
-    return id;
+    return result;
   }
   removeFunko(id: number): boolean {
     const result = super.removeFunko(id);
@@ -57,11 +58,11 @@ export class UsuarioJSON extends Usuario {
     }
     return result;
   }
-  updateFunko(id: number, funko: Funko): boolean {
-    const result = super.updateFunko(id, funko);
+  updateFunko(funko: Funko): boolean {
+    const result = super.updateFunko(funko);
     if (result) {
       fs.writeFile(
-        "./data/" + this.name + "/" + id + ".json",
+        "./data/" + this.name + "/" + funko.id + ".json",
         JSON.stringify(funko),
         (err) => {
           if (err) {
