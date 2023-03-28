@@ -1,4 +1,4 @@
-import { Usuario } from "./datatypes/usuario.js";
+import { UsuarioJSON } from "./datatypes/usuario_json.js";
 import { Funko } from "./datatypes/funko.js";
 import { FunkoCollection } from "./datatypes/funko_collection.js";
 import yargs from "yargs";
@@ -67,17 +67,20 @@ yargs(hideBin(process.argv))
       },
     },
     (argv) => {
-      console.log(argv.user);
-      console.log(argv.id);
-      console.log(argv.name);
-      console.log(argv.desc);
-      console.log(argv.type);
-      console.log(argv.genre);
-      console.log(argv.franchise);
-      console.log(argv.number);
-      console.log(argv.exclusive);
-      console.log(argv.special_char);
-      console.log(argv.price);
+      const user = new UsuarioJSON(argv.user);
+      const funko = new Funko(
+        argv.id,
+        argv.name,
+        argv.desc,
+        argv.type,
+        argv.genre,
+        argv.franchise,
+        argv.number,
+        argv.exclusive,
+        argv.special_char.split(","),
+        argv.price
+      );
+      user.addFunko(funko);
     }
   )
   .help().argv;
@@ -116,7 +119,8 @@ yargs(hideBin(process.argv))
       },
     },
     (argv) => {
-      console.log(argv.user);
+      const user = new UsuarioJSON(argv.user);
+      user.listFunkos();
     }
   )
   .help().argv;

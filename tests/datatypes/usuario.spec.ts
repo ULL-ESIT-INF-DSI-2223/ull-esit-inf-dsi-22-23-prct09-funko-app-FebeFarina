@@ -12,6 +12,7 @@ describe("Usuario", () => {
   it("Se debe poder agregar un Funko a la colección del usuario", () => {
     const usuario = new Usuario("Juan", new FunkoCollection());
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -28,6 +29,7 @@ describe("Usuario", () => {
   it("Se debe poder eliminar un Funko de la colección del usuario", () => {
     const usuario = new Usuario("Juan", new FunkoCollection());
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -45,6 +47,7 @@ describe("Usuario", () => {
   it("Se debe poder actualizar un Funko de la colección del usuario", () => {
     const usuario = new Usuario("Juan", new FunkoCollection());
     const funko1 = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -56,6 +59,7 @@ describe("Usuario", () => {
       1
     );
     const funko2 = new Funko(
+      2,
       "Funko",
       "Funko",
       "Pop!",
@@ -77,6 +81,7 @@ describe("Usuario", () => {
   it("Se debe poder obtener un funko de la colección del usuario", () => {
     const usuario = new Usuario("Juan", new FunkoCollection());
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -94,6 +99,7 @@ describe("Usuario", () => {
   it("Se debe poder obtener la información de un funko de la colección del usuario", () => {
     const usuario = new Usuario("Juan", new FunkoCollection());
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",

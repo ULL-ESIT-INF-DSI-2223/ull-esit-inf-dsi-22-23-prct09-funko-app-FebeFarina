@@ -5,32 +5,37 @@ import chalk from "chalk";
 const log = console.log;
 
 export class Usuario {
-  constructor(private name: string, private funkos: FunkoCollection) {}
-  addFunko(funko: Funko): number {
+  protected funkos = new FunkoCollection();
+  constructor(protected name: string) {}
+  addFunko(funko: Funko, print: boolean): number {
     if (this.funkos.get(funko.id)) {
-      log(chalk.red("Funko already exists at" + this.name + "collection"));
+      if (print) {
+        log(chalk.red("Funko already exists at " + this.name + " collection"));
+      }
       return -1;
     } else {
       const id = this.funkos.add(funko);
-      log(chalk.green("Funko added at" + this.name + "collection"));
+      if (print) {
+        log(chalk.green("Funko added at " + this.name + " collection"));
+      }
       return id;
     }
   }
   removeFunko(id: number): boolean {
     const result = this.funkos.remove(id);
     if (result) {
-      log(chalk.green("Funko removed at" + this.name + "collection"));
+      log(chalk.green("Funko removed at " + this.name + " collection"));
     } else {
-      log(chalk.red("Funko not found at" + this.name + "collection"));
+      log(chalk.red("Funko not found at " + this.name + " collection"));
     }
     return result;
   }
   updateFunko(id: number, funko: Funko): boolean {
     const result = this.funkos.update(id, funko);
     if (result) {
-      log(chalk.green("Funko updated at" + this.name + "collection"));
+      log(chalk.green("Funko updated at " + this.name + " collection"));
     } else {
-      log(chalk.red("Funko not found at" + this.name + "collection"));
+      log(chalk.red("Funko not found at " + this.name + " collection"));
     }
     return result;
   }
@@ -38,7 +43,7 @@ export class Usuario {
     return this.funkos.get(id);
   }
   listFunkos() {
-    log(chalk.green(this.name + "Funko Pop collection"));
+    log(chalk.green(this.name + " Funko Pop collection"));
     this.funkos.forEach((funko) => {
       log("--------------------------------");
       funko.showInfo();

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
-    "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "coverage": "c8 mocha && c8 report --reporter=text-lcov",
     "start": "tsc-watch --onSuccess \"node dist/funko-app.js\"",
     "doc": "typedoc; touch ./docs/.nojekyll"
   },
@@ -27,6 +27,7 @@
     "@types/yargs": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "c8": "^7.13.0",
     "chai": "^4.3.7",
     "coveralls": "^3.1.1",
     "eslint": "^8.36.0",
@@ -42,5 +43,8 @@
     "@types/node": "^18.15.10",
     "chalk": "^5.2.0",
     "yargs": "^17.7.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }

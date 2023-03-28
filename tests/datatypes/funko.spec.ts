@@ -5,6 +5,7 @@ import { Funko } from "../../src/datatypes/funko.js";
 describe("Funko", () => {
   it("Se debe poder crear un Funko", () => {
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -19,6 +20,7 @@ describe("Funko", () => {
   });
   it("Se debe poder obtener el valor en el mercado de un Funko", () => {
     let funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -31,6 +33,7 @@ describe("Funko", () => {
     );
     expect(funko.getMarketValue()).to.be.equal("Very High");
     funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -43,6 +46,7 @@ describe("Funko", () => {
     );
     expect(funko.getMarketValue()).to.be.equal("High");
     funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -55,6 +59,7 @@ describe("Funko", () => {
     );
     expect(funko.getMarketValue()).to.be.equal("Medium");
     funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
@@ -69,6 +74,7 @@ describe("Funko", () => {
   });
   it("Se debe poder mostrar la información de un Funko", () => {
     const funko = new Funko(
+      1,
       "Funko",
       "Funko",
       "Pop!",
