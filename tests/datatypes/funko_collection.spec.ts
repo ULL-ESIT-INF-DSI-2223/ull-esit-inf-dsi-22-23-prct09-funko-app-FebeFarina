@@ -104,7 +104,7 @@ describe("Funko Collection", () => {
       ["Funko"],
       1
     );
-    const id = funkoCollection.set(funko);
+    funkoCollection.set(funko);
     const funkoFound = funkoCollection.get(funko.id);
     expect(funkoFound).to.be.eq(funko);
   });

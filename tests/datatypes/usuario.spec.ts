@@ -2,7 +2,6 @@ import "mocha";
 import { expect } from "chai";
 import { Usuario } from "../../src/datatypes/usuario.js";
 import { Funko } from "../../src/datatypes/funko.js";
-import { FunkoCollection } from "../../src/datatypes/funko_collection.js";
 
 describe("Usuario", () => {
   it("Se debe poder crear un usuario", () => {
@@ -111,6 +110,7 @@ describe("Usuario", () => {
       ["Funko"],
       1
     );
+    usuario.setFunko(funko, true);
     expect(usuario.listFunkos()).to.be.true;
   });
   it("Se debe poder obtener un funko de la colección del usuario", () => {

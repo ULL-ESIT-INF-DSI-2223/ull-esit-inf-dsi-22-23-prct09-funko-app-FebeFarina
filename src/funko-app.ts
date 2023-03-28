@@ -1,9 +1,7 @@
 import { UsuarioJSON } from "./datatypes/usuario_json.js";
 import { Funko } from "./datatypes/funko.js";
-import { FunkoCollection } from "./datatypes/funko_collection.js";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import fs from "fs";
 
 yargs(hideBin(process.argv))
   .command(

@@ -1,7 +1,5 @@
 import { Usuario } from "./usuario.js";
-import { FunkoCollection } from "./funko_collection.js";
 import { Funko } from "./funko.js";
-import chalk from "chalk";
 import fs from "fs";
 
 export class UsuarioJSON extends Usuario {
