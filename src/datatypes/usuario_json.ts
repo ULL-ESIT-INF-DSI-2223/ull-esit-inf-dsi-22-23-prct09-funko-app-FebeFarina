@@ -12,28 +12,22 @@ export class UsuarioJSON extends Usuario {
     }
     const files = fs.readdirSync("./data/" + name);
     files.forEach((file) => {
-      fs.readFileSync("./data/" + name + "/" + file, (err, data) => {
-        if (err) {
-          console.log(err);
-        } else {
-          const funko = JSON.parse(data.toString());
-          this.funkos.add(
-            new Funko(
-              funko.id,
-              funko.name,
-              funko.description,
-              funko.type,
-              funko.genre,
-              funko.franchise,
-              funko.number,
-              funko.exclusive,
-              funko.special_characteristics,
-              funko.price
-            )
-          );
-        }
-        console.log(this.funkos);
-      });
+      const data = fs.readFileSync("./data/" + name + "/" + file);
+      const funko = JSON.parse(data.toString());
+      this.funkos.add(
+        new Funko(
+          funko.id,
+          funko.name,
+          funko.description,
+          funko.type,
+          funko.genre,
+          funko.franchise,
+          funko.number,
+          funko.exclusive,
+          funko.special_characteristics,
+          funko.price
+        )
+      );
     });
   }
 
@@ -80,6 +74,10 @@ export class UsuarioJSON extends Usuario {
   }
   listFunkos(): boolean {
     super.listFunkos();
+    return true;
+  }
+  showFunko(id: number): boolean {
+    super.showFunko(id);
     return true;
   }
 }

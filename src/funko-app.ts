@@ -102,7 +102,8 @@ yargs(hideBin(process.argv))
       },
     },
     (argv) => {
-      console.log(argv.id);
+      const user = new UsuarioJSON(argv.user);
+      user.removeFunko(argv.id);
     }
   )
   .help().argv;
@@ -142,7 +143,8 @@ yargs(hideBin(process.argv))
       },
     },
     (argv) => {
-      console.log(argv.id);
+      const user = new UsuarioJSON(argv.user);
+      user.showFunko(argv.id);
     }
   )
   .help().argv;
@@ -200,7 +202,7 @@ yargs(hideBin(process.argv))
       special_char: {
         description: "Funko Special Characteristics",
         type: "string",
-        demandOption: false,
+        demandOption: true,
       },
       price: {
         description: "Funko Price",
@@ -209,7 +211,20 @@ yargs(hideBin(process.argv))
       },
     },
     (argv) => {
-      console.log(argv.id);
+      const user = new UsuarioJSON(argv.user);
+      const funko = new Funko(
+        argv.id,
+        argv.name,
+        argv.desc,
+        argv.type,
+        argv.genre,
+        argv.franchise,
+        argv.number,
+        argv.exclusive,
+        argv.special_char.split(","),
+        argv.price
+      );
+      user.updateFunko(argv.id, funko);
     }
   )
   .help().argv;
