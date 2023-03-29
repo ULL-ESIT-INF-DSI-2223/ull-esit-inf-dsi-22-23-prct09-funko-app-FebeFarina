@@ -26,6 +26,16 @@ describe("UsuarioJSON", () => {
     );
     expect(id).to.be.equal(true);
   });
+  it("Se debe poder mostrar un Funko de un UsuarioJSON", () => {
+    const usuarioJSON = new UsuarioJSON("test_user");
+    const result = usuarioJSON.showFunko(9999);
+    expect(result).to.be.equal(true);
+  });
+  it("Se debe poder listar los Funkos de un UsuarioJSON", () => {
+    const usuarioJSON = new UsuarioJSON("test_user");
+    const result = usuarioJSON.listFunkos();
+    expect(result).to.be.equal(true);
+  });
   it("Se debe poder modificar un Funko de un UsuarioJSON", () => {
     const usuarioJSON = new UsuarioJSON("test_user");
     const result = usuarioJSON.updateFunko(
@@ -42,16 +52,6 @@ describe("UsuarioJSON", () => {
         100
       )
     );
-    expect(result).to.be.equal(true);
-  });
-  it("Se debe poder listar los Funkos de un UsuarioJSON", () => {
-    const usuarioJSON = new UsuarioJSON("test_user");
-    const result = usuarioJSON.listFunkos();
-    expect(result).to.be.equal(true);
-  });
-  it("Se debe poder mostrar un Funko de un UsuarioJSON", () => {
-    const usuarioJSON = new UsuarioJSON("test_user");
-    const result = usuarioJSON.showFunko(9999);
     expect(result).to.be.equal(true);
   });
   it("Se debe poder eliminar un Funko de un UsuarioJSON", () => {

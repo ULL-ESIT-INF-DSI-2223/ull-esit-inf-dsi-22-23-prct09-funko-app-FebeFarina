@@ -1,6 +1,8 @@
 {
     "entryPoints": [
-        "./src/index.ts"
+        "./src/FunkoApp/datatypes/*.ts",
+        "./src/FunkoApp/funko-app.ts",
+        "./src/PE101/*.ts",
     ],
     "out": "./docs",
 }

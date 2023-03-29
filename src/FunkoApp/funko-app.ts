@@ -222,7 +222,7 @@ yargs(hideBin(process.argv))
         argv.special_char.split(","),
         argv.price
       );
-      user.setFunko(funko);
+      user.updateFunko(funko);
     }
   )
   .help().argv;

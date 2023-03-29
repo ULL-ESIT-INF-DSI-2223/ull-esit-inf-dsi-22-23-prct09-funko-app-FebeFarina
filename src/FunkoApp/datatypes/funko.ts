@@ -1,7 +1,19 @@
 import chalk from "chalk";
 
 const log = console.log;
-
+/**
+ * Clase que representa un Funko
+ * @param id Identificador del Funko
+ * @param name Nombre del Funko
+ * @param description Descripción del Funko
+ * @param type Tipo de Funko
+ * @param genre Género del Funko
+ * @param franchise Franquicia del Funko
+ * @param number Número del Funko
+ * @param exclusive Indica si el Funko es exclusivo
+ * @param special_characteristics Características especiales del Funko
+ * @param price Precio del Funko
+ */
 export class Funko {
   constructor(
     public id: number,
@@ -15,6 +27,10 @@ export class Funko {
     private special_characteristics: string[],
     private price: number
   ) {}
+  /**
+   * Método que devuelve la valoración del Funko en función de su precio
+   * @returns Valoración del Funko en función de su precio
+   */
   getMarketValue(): string {
     if (this.price > 100) {
       return "Very High";
@@ -26,6 +42,9 @@ export class Funko {
       return "Low";
     }
   }
+  /**
+   * Método que muestra la información del Funko
+   */
   showInfo() {
     log(chalk.green("ID: " + this.id));
     log(chalk.green("Name: " + this.name));
