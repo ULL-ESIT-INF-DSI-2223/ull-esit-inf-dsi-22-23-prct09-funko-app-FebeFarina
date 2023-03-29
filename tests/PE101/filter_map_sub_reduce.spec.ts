@@ -10,6 +10,6 @@ describe("Filter Map Sub Reduce", () => {
     it("Se debe poder ejecutar el algoritmo", () => {
         const filterMapSubReduce = new FilterMapSubReduce([1, 2, 3, 4, 5]);
         const result = filterMapSubReduce.run();
-        expect(result).to.be.equal(-60);
+        expect(result).to.be.equal(-12);
     });
 });

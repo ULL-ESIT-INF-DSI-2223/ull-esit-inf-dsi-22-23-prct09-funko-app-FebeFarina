@@ -7,18 +7,6 @@ export class FilterMapAddReduce extends NumberListAlgorithm {
         super(list);
     }
     /**
-     * Método que implementa el filtrado de la lista, dejando sólo los números impares
-     */
-    protected filterList(): void {
-        const filteredList: number[] = [];
-        this.list.forEach((value) => {
-            if (value % 2 === 1) {
-                filteredList.push(value);
-            }
-        });
-        this.list = filteredList;
-    }
-    /**
      * Método que implementa la reducción de la lista, sumando todos los elementos
      * @returns Número que es el resultado de la suma de todos los elementos
      */

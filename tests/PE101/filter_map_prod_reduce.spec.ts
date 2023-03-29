@@ -10,6 +10,6 @@ describe("Filter Map Prod Reduce", () => {
     it("Se debe poder ejecutar el algoritmo", () => {
         const filterMapProdReduce = new FilterMapProdReduce([1, 2, 3, 4, 5]);
         const result = filterMapProdReduce.run();
-        expect(result).to.be.equal(15000);
+        expect(result).to.be.equal(32);
     });
 });

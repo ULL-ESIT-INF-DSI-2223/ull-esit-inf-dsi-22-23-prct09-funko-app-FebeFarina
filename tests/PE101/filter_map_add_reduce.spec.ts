@@ -10,6 +10,6 @@ describe("Filter Map Add Reduce", () => {
     it("Se debe poder ejecutar el algoritmo", () => {
         const filterMapAddReduce = new FilterMapAddReduce([1, 2, 3, 4, 5]);
         const result = filterMapAddReduce.run();
-        expect(result).to.be.equal(18);
+        expect(result).to.be.equal(12);
     });
 });

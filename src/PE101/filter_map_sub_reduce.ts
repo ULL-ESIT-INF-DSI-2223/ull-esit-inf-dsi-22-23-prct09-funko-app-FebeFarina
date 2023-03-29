@@ -7,16 +7,6 @@ export class FilterMapSubReduce extends NumberListAlgorithm {
         super(list);
     }
     /**
-     * Método que implementa el mapeo de la lista, multiplicando todos los elementos por 10
-     */
-    protected mapList(): void {
-        const mappedList: number[] = [];
-        this.list.forEach((value) => {
-            mappedList.push(value * 10);
-        });
-        this.list = mappedList;
-    }
-    /**
      * Método que implementa la reducción de la lista, restando todos los elementos
      * @returns Número que es el resultado de la resta de todos los elementos
      */
