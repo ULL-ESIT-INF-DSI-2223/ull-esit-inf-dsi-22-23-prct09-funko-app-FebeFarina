@@ -19,6 +19,7 @@ export abstract class NumberListAlgorithm {
   }
   /**
    * Método que implementa el filtrado de la lista, dejando sólo los números pares
+   * @param filter Función que filtra los elementos de la lista
    */
   protected filterList(
     filter: (value: number) => boolean = (value) => value % 2 === 0
@@ -33,6 +34,7 @@ export abstract class NumberListAlgorithm {
   }
   /**
    * Método que implementa el mapeo de la lista, multiplicando todos los elementos por 2
+   * @param func Función que mapea los elementos de la lista
    */
   protected mapList(func: (value: number) => number = (value) => value * 2) {
     const mappedList: number[] = [];
