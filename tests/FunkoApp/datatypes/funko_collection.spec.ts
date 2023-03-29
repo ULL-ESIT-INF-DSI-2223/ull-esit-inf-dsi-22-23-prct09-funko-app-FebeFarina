@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
-import { Funko } from "../../src/datatypes/funko.js";
-import { FunkoCollection } from "../../src/datatypes/funko_collection.js";
+import { Funko } from "../../../src/FunkoApp/datatypes/funko.js";
+import { FunkoCollection } from "../../../src/FunkoApp/datatypes/funko_collection.js";
 
 describe("Funko Collection", () => {
   it("Se debe poder crear una colección de Funkos", () => {

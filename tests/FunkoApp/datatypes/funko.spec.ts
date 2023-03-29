@@ -1,6 +1,6 @@
 import "mocha";
 import { expect } from "chai";
-import { Funko } from "../../src/datatypes/funko.js";
+import { Funko } from "../../../src/FunkoApp/datatypes/funko.js";
 
 describe("Funko", () => {
   it("Se debe poder crear un Funko", () => {

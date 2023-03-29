@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
-import { UsuarioJSON } from "../../src/datatypes/usuario_json.js";
-import { Funko } from "../../src/datatypes/funko.js";
+import { UsuarioJSON } from "../../../src/FunkoApp/datatypes/usuario_json.js";
+import { Funko } from "../../../src/FunkoApp/datatypes/funko.js";
 
 describe("UsuarioJSON", () => {
   it("Se debe poder crear un UsuarioJSON", () => {
